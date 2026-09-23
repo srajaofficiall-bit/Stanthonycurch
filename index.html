@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ST. ANTHONY CHURCH | Official Website</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <!-- Google reCAPTCHA API -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <!-- Spiritual & Professional Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
@@ -77,63 +75,158 @@
 
         .section-title-tag {
             text-align: center;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: bold;
             letter-spacing: 1px;
             text-transform: uppercase;
-            color: #666;
-            margin-bottom: 15px;
+            color: var(--primary-blue);
+            margin: 25px 0 15px;
         }
 
-        .line-one-grid { display: flex; gap: 20px; margin-bottom: 30px; }
-        .line-one-grid > div { flex: 1; }
-
-        .coffee-box {
-            background: linear-gradient(145deg, #FFFDF9 0%, #F5EBE1 100%);
-            border: 2px solid #D4A373;
+        /* EBOOK LIBRARY STYLES */
+        .ebook-library-box {
+            background: var(--white);
+            border: 2px solid var(--accent-blue);
             border-radius: 18px;
-            padding: 22px 18px;
+            padding: 22px;
+            box-shadow: 0 10px 25px rgba(0, 115, 230, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .ebook-header { text-align: center; margin-bottom: 15px; }
+        .ebook-header h2 { color: var(--accent-blue); font-size: 1.5rem; font-weight: 800; }
+        .ebook-header p { font-size: 0.88rem; color: #555; }
+
+        .main-tab-buttons { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; }
+        .main-tab-btn { 
+            background: var(--white); 
+            color: var(--primary-blue); 
+            border: 2px solid var(--accent-blue); 
+            padding: 8px 18px; 
+            border-radius: 20px; 
+            font-size: 0.88rem; 
+            font-weight: bold; 
+            cursor: pointer; 
+            transition: 0.3s; 
+        }
+        .main-tab-btn.active, .main-tab-btn:hover { background: var(--accent-blue); color: var(--white); }
+
+        .books-single-container {
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        .ebook-card { 
+            background: #F8FAFC; 
+            border-radius: 12px; 
+            padding: 18px; 
+            border: 1px solid #E0E0E0; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between;
             text-align: center;
-            box-shadow: 0 10px 25px rgba(61, 35, 20, 0.12);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .ebook-card:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
+        .ebook-card h4 { font-size: 1.05rem; color: var(--primary-blue); margin-bottom: 8px; line-height: 1.4; }
+        .ebook-card p { font-size: 0.85rem; color: #666; margin-bottom: 12px; }
+        .price-badge { background: #FFEBEB; color: #D9381E; font-weight: bold; padding: 4px 12px; border-radius: 12px; font-size: 0.82rem; display: inline-block; margin-bottom: 12px; }
+        
+        .btn-download { 
+            background: var(--green); 
+            color: var(--white); 
+            text-decoration: none; 
+            padding: 10px; 
+            border-radius: 6px; 
+            text-align: center; 
+            font-weight: bold; 
+            font-size: 0.88rem; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 6px; 
+        }
+        .btn-download:hover { background: #218838; }
+
+        .other-lang-box {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #F8FAFC;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #CBD5E1;
+        }
+
+        .form-group-mini { margin-bottom: 10px; }
+        .form-group-mini label { display: block; font-weight: bold; margin-bottom: 3px; font-size: 0.78rem; color: var(--primary-blue); }
+        .form-group-mini select, .form-group-mini input, .form-group-mini textarea {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #CCC;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        .btn-mini-submit {
+            color: var(--white);
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            text-decoration: none;
+        }
+        .btn-blue { background: var(--accent-blue); }
+        .btn-blue:hover { background: #005bb5; }
+        .btn-purple { background: var(--purple); }
+        .btn-gold { background: #B8860B; }
+        .btn-gold:hover { background: #996515; }
+        .btn-orange { background: var(--orange); }
+        .btn-red { background: var(--red-army); }
+
+        .line-two-grid { display: flex; gap: 15px; margin-bottom: 25px; }
+        .line-two-grid > div { flex: 1; }
+
+        .small-card-box {
+            background: var(--white);
+            padding: 18px;
+            border-radius: 14px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             height: 100%;
-            position: relative;
-            overflow: hidden;
         }
-        .coffee-box::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #D4A373, var(--coffee-dark), #D4A373);
-        }
+        .small-card-box.purple-border { border-top: 4px solid var(--purple); }
+        .small-card-box.gold-border { border-top: 4px solid #D4AF37; }
+        .small-card-box.orange-border { border-top: 4px solid var(--orange); }
+        .small-card-box.red-border { border-top: 4px solid var(--red-army); }
 
-        .coffee-icon-wrapper { position: relative; display: inline-block; margin-bottom: 8px; }
-        .coffee-icon {
-            font-size: 2.5rem;
-            color: var(--coffee-dark);
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
-            transition: transform 0.3s ease;
-        }
-        .coffee-icon-wrapper:hover .coffee-icon { transform: translateY(-3px) scale(1.05); }
+        .small-card-box h3 { font-size: 1rem; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+        .small-card-box p { font-size: 0.8rem; color: #666; margin-bottom: 12px; }
 
-        .coffee-box h2 { color: var(--coffee-dark); font-size: 1.35rem; margin-bottom: 6px; font-weight: 800; }
-        .coffee-quote-card {
-            background: #FFFFFF;
-            border-left: 3px solid #D4A373;
-            padding: 10px 12px;
-            border-radius: 8px;
-            margin: 8px 0 14px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        .hero-actions{margin-top:18px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+        .hero-btn{text-decoration:none;padding:10px 17px;border-radius:25px;font-size:.82rem;font-weight:800;display:inline-flex;align-items:center;gap:7px;transition:.25s}
+        .hero-btn.primary{background:#ff0000;color:#fff;box-shadow:0 5px 14px rgba(255,0,0,.25)}
+        .hero-btn.secondary{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,215,0,.65)}
+        
+        .coffee-box {
+            background: linear-gradient(145deg, #FFFDF9 0%, #F5EBE1 100%);
+            border: 2px solid #D4A373;
+            border-radius: 18px;
+            padding: 22px;
             text-align: center;
+            box-shadow: 0 10px 25px rgba(61, 35, 20, 0.12);
+            margin-bottom: 30px;
         }
-        .coffee-quote-card p { font-size: 0.85rem; color: #4A3B32; line-height: 1.4; font-style: italic; }
-        .coffee-quote-card strong { color: var(--coffee-dark); font-style: normal; }
-
-        .coffee-pay-area { display: flex; flex-direction: column; align-items: center; gap: 12px; }
-
         .btn-coffee-pay { 
             background: linear-gradient(135deg, var(--coffee-warm) 0%, var(--coffee-dark) 100%); 
             color: var(--white); 
@@ -145,110 +238,13 @@
             display: inline-flex; 
             align-items: center; 
             gap: 8px; 
-            box-shadow: 0 4px 12px rgba(61, 35, 20, 0.25);
-            transition: 0.3s; 
+            transition: 0.3s;
         }
         .btn-coffee-pay:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(61, 35, 20, 0.35); }
 
-        .ebook-main-box {
-            background: var(--white);
-            border: 2px solid var(--accent-blue);
-            border-radius: 18px;
-            padding: 20px;
-            box-shadow: 0 10px 25px rgba(0, 115, 230, 0.08);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-        }
-        .ebook-header { text-align: center; margin-bottom: 10px; }
-        .ebook-header h2 { color: var(--accent-blue); font-size: 1.35rem; font-weight: 800; }
-        .ebook-header p { font-size: 0.85rem; color: #555; }
-
-        .sub-tab-buttons { display: flex; justify-content: center; gap: 6px; margin-bottom: 12px; }
-        .sub-tab-btn { background: var(--white); color: var(--primary-blue); border: 1px solid var(--accent-blue); padding: 4px 10px; border-radius: 15px; font-size: 0.78rem; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .sub-tab-btn.active, .sub-tab-btn:hover { background: var(--accent-blue); color: var(--white); }
-
-        .ebook-card-mini { background: #F8FAFC; border-radius: 10px; padding: 12px; border: 1px solid #E0E0E0; text-align: center; }
-        .ebook-card-mini h4 { font-size: 0.95rem; color: var(--primary-blue); margin-bottom: 6px; line-height: 1.4; }
-        .ebook-card-mini p { font-size: 0.78rem; color: #666; margin-bottom: 8px; }
-        .price-badge { background: #FFEBEB; color: #D9381E; font-weight: bold; padding: 2px 8px; border-radius: 12px; font-size: 0.78rem; display: inline-block; margin-bottom: 8px; }
-        .btn-download { background: var(--green); color: var(--white); text-decoration: none; padding: 8px; border-radius: 6px; text-align: center; font-weight: bold; font-size: 0.82rem; display: flex; align-items: center; justify-content: center; gap: 6px; }
-
-        .line-two-grid { display: flex; gap: 15px; margin-bottom: 25px; }
-        .line-two-grid > div { flex: 1; }
-
-        .small-card-box {
-            background: var(--white);
-            padding: 15px;
-            border-radius: 14px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-        }
-        .small-card-box.purple-border { border-top: 4px solid var(--purple); }
-        .small-card-box.orange-border { border-top: 4px solid var(--orange); }
-        .small-card-box.red-border { border-top: 4px solid var(--red-army); }
-
-        .small-card-box h3 { font-size: 0.98rem; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
-        .small-card-box p { font-size: 0.78rem; color: #666; margin-bottom: 10px; }
-
-        .form-group-mini { margin-bottom: 8px; }
-        .form-group-mini label { display: block; font-weight: bold; margin-bottom: 2px; font-size: 0.75rem; color: var(--primary-blue); }
-        .form-group-mini select, .form-group-mini input, .form-group-mini textarea {
-            width: 100%;
-            padding: 6px 8px;
-            border: 1px solid #CCC;
-            border-radius: 5px;
-            font-size: 0.8rem;
-        }
-
-        .btn-mini-submit {
-            color: var(--white);
-            border: none;
-            padding: 8px;
-            width: 100%;
-            border-radius: 5px;
-            font-size: 0.82rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-            margin-top: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-        .btn-purple { background: var(--purple); }
-        .btn-purple:hover { background: #56349a; }
-        .btn-orange { background: var(--orange); }
-        .btn-orange:hover { background: #d9680c; }
-        .btn-red { background: var(--red-army); }
-        .btn-red:hover { background: #b02a37; }
-        .btn-blue { background: var(--accent-blue); }
-
-        .hero-actions{margin-top:18px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
-        .hero-btn{text-decoration:none;padding:10px 17px;border-radius:25px;font-size:.82rem;font-weight:800;display:inline-flex;align-items:center;gap:7px;transition:.25s}
-        .hero-btn.primary{background:#ff0000;color:#fff;box-shadow:0 5px 14px rgba(255,0,0,.25)}
-        .hero-btn.secondary{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,215,0,.65)}
-        .hero-btn:hover{transform:translateY(-2px)}
-
         .store-section{margin:26px 0 28px}
-        .store-card{background:linear-gradient(135deg,#fff,#f7faff);border:1px solid #dbe7f5;border-radius:18px;padding:20px;display:flex;align-items:center;justify-content:space-between;gap:18px;box-shadow:0 8px 20px rgba(10,37,64,.06)}
-        .store-card h2{color:var(--primary-blue);font-size:1.35rem;margin-bottom:5px}
-        .store-card p{color:#667085;font-size:.85rem}
-        .store-btn{background:#0A2540;color:#fff;text-decoration:none;padding:10px 17px;border-radius:24px;font-weight:800;font-size:.82rem;white-space:nowrap}
-        .store-btn:hover{background:#0073E6}
-
-        @media (max-width: 768px) {
-            header h1 { font-size: 1.8rem; }
-            header p { font-size: 0.85rem; }
-            .line-one-grid, .line-two-grid { flex-direction: column; }
-            .store-card { flex-direction: column; align-items: flex-start; }
-            .store-btn { width: 100%; text-align: center; }
-        }
+        .store-card{background:linear-gradient(135deg,#fff,#f7faff);border:1px solid #dbe7f5;border-radius:18px;padding:20px;display:flex;align-items:center;justify-content:space-between;gap:18px;}
+        .store-btn{background:#0A2540;color:#fff;text-decoration:none;padding:10px 17px;border-radius:24px;font-weight:800;font-size:.82rem;}
 
         .social-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 25px; }
         .social-card { padding: 12px; border-radius: 10px; color: var(--white); text-align: center; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
@@ -257,6 +253,11 @@
 
         footer { background: var(--primary-blue); color: var(--white); text-align: center; padding: 20px; margin-top: 35px; font-size: 0.85rem; }
         footer a { color: var(--gold); }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8rem; }
+            .line-two-grid { flex-direction: column; }
+        }
     </style>
 </head>
 <body>
@@ -273,114 +274,118 @@
 
     <div class="container">
 
-        <div class="section-title-tag">--- Main Featured Options ---</div>
+        <!-- COFFEE DONATION SECTION -->
+        <div class="coffee-box">
+            <h2 style="color: var(--coffee-dark); margin-bottom: 8px;"><i class="fas fa-mug-hot"></i> Buy Me ½ Cup Coffee ☕</h2>
+            <p style="font-size: 0.88rem; color: #4A3B32; max-width: 700px; margin: 0 auto 15px;">
+                "Aapko lagta hai ki humare videos ke zariye hum <strong>Christian Samaj</strong> ko ek achha message de rahe hain, toh aap hume <strong>½ Cup Coffee (₹5)</strong> donate karke support kar sakte hain! God Bless You! 🙏"
+            </p>
+            <a href="https://rzp.io/rzp/aYCNkcYv" target="_blank" class="btn-coffee-pay">
+                <i class="fas fa-heart"></i> Donate ½ Cup Coffee (₹5)
+            </a>
+        </div>
 
-        <div class="line-one-grid">
+        <!-- EBOOKS DIGITAL LIBRARY SECTION -->
+        <div class="section-title-tag">--- Church Digital Library ---</div>
 
-            <!-- BUY ME A COFFEE -->
-            <div>
-                <div class="coffee-box">
+        <div class="ebook-library-box">
+            <div class="ebook-header">
+                <h2><i class="fas fa-book-open"></i> Explore Christian eBooks</h2>
+                <p>Select your language to view and download motivational eBooks (₹10 Each)</p>
+            </div>
+
+            <div class="main-tab-buttons">
+                <button class="main-tab-btn active" onclick="switchLanguage('odia', this)">ODIA eBOOK</button>
+                <button class="main-tab-btn" onclick="switchLanguage('english', this)">ENGLISH eBOOK</button>
+                <button class="main-tab-btn" onclick="switchLanguage('other', this)">OTHER LANGUAGES</button>
+            </div>
+
+            <!-- ODIA EBOOK CONTAINER -->
+            <div id="lang-odia" class="books-single-container">
+                <div class="ebook-card">
+                    <h4>ଶୀଘ୍ର ସଫଳତା ପାଇଁ ବାଇବେଲ୍ ର ୩ଟି ବାକ୍ୟ</h4>
+                    <p>Discover 3 powerful Bible messages for quick spiritual success.</p>
                     <div>
-                        <div class="coffee-icon-wrapper">
-                            <i class="fas fa-mug-hot coffee-icon"></i>
-                        </div>
-                        <h2>Buy Me ½ Cup Coffee ☕</h2>
-
-                        <div class="coffee-quote-card">
-                            <p>
-                                "Aapko lagta hai ki humare videos ke zariye hum <strong>Christian Samaj</strong> ko ek achha message aur sikh de rahe hain, toh aap hume <strong>½ Cup Coffee (₹5)</strong> donate karke support kar sakte hain! Aapka sahyog hume naye videos banane mein madad karega. God Bless You! 🙏"
-                            </p>
-                        </div>
+                        <span class="price-badge">Price: ₹10 ONLY</span>
                     </div>
-                    
-                    <div class="coffee-pay-area">
-                        <a href="https://rzp.io/rzp/aYCNkcYv" target="_blank" class="btn-coffee-pay">
-                            <i class="fas fa-heart"></i> Donate ½ Cup Coffee (₹5)
-                        </a>
-                    </div>
+                    <a href="https://rzp.io/rzp/oNnbuKJ" target="_blank" class="btn-download">
+                        <i class="fas fa-download"></i> Pay ₹10 & Download (Odia)
+                    </a>
                 </div>
             </div>
 
-            <!-- EBOOK SECTION -->
-            <div>
-                <div class="ebook-main-box">
-                    <div class="ebook-header">
-                        <h2><i class="fas fa-book-open"></i> Church eBooks</h2>
-                        <p>Get instant motivational & spiritual eBooks</p>
+            <!-- ENGLISH EBOOK CONTAINER -->
+            <div id="lang-english" class="books-single-container" style="display: none;">
+                <div class="ebook-card">
+                    <h4>3 Powerful Bible Messages for Success</h4>
+                    <p>English Edition for faith, success, and spiritual direction.</p>
+                    <div>
+                        <span class="price-badge">Price: ₹10 ONLY</span>
                     </div>
-
-                    <div class="sub-tab-buttons">
-                        <button class="sub-tab-btn active" onclick="switchLanguage('odia', this)">ODIA</button>
-                        <button class="sub-tab-btn" onclick="switchLanguage('english', this)">ENGLISH</button>
-                        <button class="sub-tab-btn" onclick="switchLanguage('other', this)">OTHER</button>
-                    </div>
-
-                    <!-- Odia eBook -->
-                    <div id="lang-odia" class="ebook-card-mini">
-                        <h4>ଶୀଘ୍ର ସଫଳତା ପାଇଁ ବାଇବେଲ୍ ର ୩ଟି ବାକ୍ୟ</h4>
-                        <p>Discover 3 powerful Bible messages for quick success.</p>
-                        <div class="price-badge">Price: ₹10 ONLY</div>
-                        <a href="https://rzp.io/rzp/oNnbuKJ" target="_blank" class="btn-download">
-                            <i class="fas fa-download"></i> Pay ₹10 & Download (Odia)
-                        </a>
-                    </div>
-
-                    <!-- English eBook -->
-                    <div id="lang-english" class="ebook-card-mini" style="display: none;">
-                        <h4>3 Powerfull Bible Massage for a Success</h4>
-                        <p>English Edition for faith, success & peace.</p>
-                        <div class="price-badge">Price: ₹10 ONLY</div>
-                        <a href="https://rzp.io/rzp/8iRf5qg" target="_blank" class="btn-download">
-                            <i class="fas fa-download"></i> Pay ₹10 & Download (Eng)
-                        </a>
-                    </div>
-
-                    <!-- Other Languages Form -->
-                    <div id="lang-other" class="ebook-card-mini" style="display: none;">
-                        <form action="https://formspree.io/f/xzezrkdd" method="POST">
-                            <input type="hidden" name="_gotcha" style="display:none !important">
-                            <input type="hidden" name="Form Category" value="eBook Request (Other Language)">
-
-                            <div class="form-group-mini">
-                                <select name="Selected Language" required>
-                                    <option value="">-- Choose Language --</option>
-                                    <option value="Hindi">Hindi (हिंदी)</option>
-                                    <option value="Bengali">Bengali (বাংলা)</option>
-                                    <option value="Telugu">Telugu (తెలుగు)</option>
-                                    <option value="Tamil">Tamil (தமிழ்)</option>
-                                    <option value="Other">Other Language</option>
-                                </select>
-                            </div>
-                            <div class="form-group-mini">
-                                <input type="email" name="Customer Email" placeholder="Your Email" required>
-                            </div>
-                            <div class="form-group-mini">
-                                <input type="text" name="Payment Details" placeholder="UPI Ref / UTR No." required>
-                            </div>
-
-                            <button type="submit" class="btn-mini-submit btn-blue">
-                                <i class="fas fa-paper-plane"></i> Request eBook (₹10)
-                            </button>
-                        </form>
-                    </div>
+                    <a href="https://rzp.io/rzp/8iRf5qg" target="_blank" class="btn-download">
+                        <i class="fas fa-download"></i> Pay ₹10 & Download (English)
+                    </a>
                 </div>
+            </div>
+
+            <!-- OTHER LANGUAGES FORM -->
+            <div id="lang-other" class="other-lang-box" style="display: none;">
+                <h3 style="text-align: center; color: var(--primary-blue); margin-bottom: 10px;">Request eBook in Other Languages</h3>
+                <p style="text-align: center; font-size: 0.8rem; color: #666; margin-bottom: 15px;">Pay ₹10 via Razorpay/UPI and submit details below to receive your eBook via email.</p>
+                
+                <form action="https://formspree.io/f/xzezrkdd" method="POST">
+                    <input type="hidden" name="_gotcha" style="display:none !important">
+                    <input type="hidden" name="Form Category" value="eBook Request (Other Language)">
+
+                    <div class="form-group-mini">
+                        <label>Select Language:</label>
+                        <select name="Selected Language" required>
+                            <option value="">-- Choose Language --</option>
+                            <option value="Hindi">Hindi (हिंदी)</option>
+                            <option value="Bengali">Bengali (বাংলা)</option>
+                            <option value="Telugu">Telugu (తెలుగు)</option>
+                            <option value="Tamil">Tamil (தமிழ்)</option>
+                            <option value="Other">Other Language</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group-mini">
+                        <label>Email Address or Phone Number:</label>
+                        <input type="text" name="Email_or_Phone" placeholder="Enter Email / Phone" required>
+                    </div>
+
+                    <div class="form-group-mini">
+                        <label>Write Book Name:</label>
+                        <input type="text" name="Book_Name" placeholder="Enter the exact book title you want" required>
+                    </div>
+
+                    <div class="form-group-mini">
+                        <label>Payment UTR / Reference Number:</label>
+                        <input type="text" name="Payment_UTR" placeholder="Enter UPI Ref / UTR No." required>
+                    </div>
+
+                    <button type="submit" class="btn-mini-submit btn-blue">
+                        <i class="fas fa-paper-plane"></i> Submit Request (₹10)
+                    </button>
+                </form>
             </div>
 
         </div>
 
-        <div class="section-title-tag">--- Free Community & Support Options ---</div>
+        <!-- PRAYER SECTION -->
+        <div class="section-title-tag">--- Prayer Request Options ---</div>
 
         <div class="line-two-grid">
 
-            <!-- PRAYER OFFER -->
+            <!-- PERSONAL PRAYER OFFER (FREE) -->
             <div>
                 <div class="small-card-box purple-border">
-                    <h3 style="color: var(--purple);"><i class="fas fa-hands-praying"></i> Prayer Offer (Free)</h3>
-                    <p>Send your prayer request (Free).</p>
+                    <h3 style="color: var(--purple);"><i class="fas fa-hands-praying"></i> Personal Prayer (Free)</h3>
+                    <p>Send your personal prayer request.</p>
                     
                     <form action="https://formspree.io/f/xzezrkdd" method="POST">
                         <input type="hidden" name="_gotcha" style="display:none !important">
-                        <input type="hidden" name="Form Type" value="Prayer Request (Free)">
+                        <input type="hidden" name="Form Type" value="Personal Prayer Request (Free)">
 
                         <div class="form-group-mini">
                             <input type="text" name="Name" placeholder="Your Name" required>
@@ -389,16 +394,53 @@
                             <input type="text" name="Contact Info" placeholder="Phone or Email" required>
                         </div>
                         <div class="form-group-mini">
-                            <textarea name="Prayer Request" rows="2" placeholder="Write prayer request..." required></textarea>
+                            <textarea name="Prayer Request" rows="2" placeholder="Write personal prayer request..." required></textarea>
                         </div>
 
                         <button type="submit" class="btn-mini-submit btn-purple">
-                            <i class="fas fa-paper-plane"></i> Submit Prayer
+                            <i class="fas fa-paper-plane"></i> Submit Free Prayer
                         </button>
                     </form>
                 </div>
             </div>
 
+            <!-- MASS PRAYER OFFER (MINIMUM ₹50 OFFERING) -->
+            <div>
+                <div class="small-card-box gold-border">
+                    <h3 style="color: #B8860B;"><i class="fas fa-church"></i> Mass Prayer Intention</h3>
+                    <p>Holy Mass Prayer (Offering: ₹50 or Above)</p>
+                    
+                    <form action="https://formspree.io/f/xzezrkdd" method="POST">
+                        <input type="hidden" name="_gotcha" style="display:none !important">
+                        <input type="hidden" name="Form Type" value="Mass Prayer Intention">
+
+                        <div class="form-group-mini">
+                            <input type="text" name="Name" placeholder="Your Name / Family Name" required>
+                        </div>
+                        <div class="form-group-mini">
+                            <input type="text" name="Mass Intention" placeholder="Intention (Soul Peace / Thanksgiving)" required>
+                        </div>
+                        <div class="form-group-mini">
+                            <input type="text" name="Payment UTR / Ref" placeholder="UPI Ref / UTR No. (Min ₹50)" required>
+                        </div>
+
+                        <a href="https://rzp.io/rzp/86PMfDC" target="_blank" class="btn-mini-submit btn-gold" style="margin-bottom: 6px;">
+                            <i class="fas fa-hand-holding-heart"></i> Pay Offering (₹50 or Above)
+                        </a>
+
+                        <button type="submit" class="btn-mini-submit btn-blue">
+                            <i class="fas fa-paper-plane"></i> Submit Mass Intention
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- COMMUNITY OPTIONS -->
+        <div class="section-title-tag">--- Free Community & Support ---</div>
+
+        <div class="line-two-grid">
             <!-- NEED HELP SUPPORT -->
             <div>
                 <div class="small-card-box orange-border">
@@ -452,7 +494,6 @@
                     </form>
                 </div>
             </div>
-
         </div>
 
         <section class="store-section" id="store">
@@ -490,7 +531,7 @@
             document.getElementById('lang-english').style.display = 'none';
             document.getElementById('lang-other').style.display = 'none';
 
-            const subBtns = document.querySelectorAll('.sub-tab-btn');
+            const subBtns = document.querySelectorAll('.main-tab-btn');
             subBtns.forEach(btn => btn.classList.remove('active'));
 
             btnElement.classList.add('active');
