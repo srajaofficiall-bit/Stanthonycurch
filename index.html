@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ST. ANTHONY CHURCH | Official Website</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Google reCAPTCHA API -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!-- Spiritual & Professional Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +31,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
         body { background-color: var(--light-bg); color: var(--text-dark); line-height: 1.5; }
 
-        /* ================= SPIRITUAL & MOTIVATIONAL BANNER ================= */
         header {
             background: linear-gradient(rgba(5, 19, 41, 0.82), rgba(10, 37, 64, 0.90)), 
                         url('https://images.unsplash.com/photo-1548625149-fc4a29cf7092?auto=format&fit=crop&q=80&w=1600') center/cover no-repeat;
@@ -84,18 +85,9 @@
             margin-bottom: 15px;
         }
 
-        /* ================= LINE 1: COFFEE & EBOOKS ================= */
-        .line-one-grid {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 30px;
-        }
+        .line-one-grid { display: flex; gap: 20px; margin-bottom: 30px; }
+        .line-one-grid > div { flex: 1; }
 
-        .line-one-grid > div {
-            flex: 1;
-        }
-
-        /* COFFEE BOX */
         .coffee-box {
             background: linear-gradient(145deg, #FFFDF9 0%, #F5EBE1 100%);
             border: 2px solid #D4A373;
@@ -118,28 +110,16 @@
             background: linear-gradient(90deg, #D4A373, var(--coffee-dark), #D4A373);
         }
 
-        .coffee-icon-wrapper {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 8px;
-        }
+        .coffee-icon-wrapper { position: relative; display: inline-block; margin-bottom: 8px; }
         .coffee-icon {
             font-size: 2.5rem;
             color: var(--coffee-dark);
             filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
             transition: transform 0.3s ease;
         }
-        .coffee-icon-wrapper:hover .coffee-icon {
-            transform: translateY(-3px) scale(1.05);
-        }
+        .coffee-icon-wrapper:hover .coffee-icon { transform: translateY(-3px) scale(1.05); }
 
-        .coffee-box h2 { 
-            color: var(--coffee-dark); 
-            font-size: 1.35rem; 
-            margin-bottom: 6px; 
-            font-weight: 800;
-        }
-        
+        .coffee-box h2 { color: var(--coffee-dark); font-size: 1.35rem; margin-bottom: 6px; font-weight: 800; }
         .coffee-quote-card {
             background: #FFFFFF;
             border-left: 3px solid #D4A373;
@@ -149,16 +129,8 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             text-align: center;
         }
-        .coffee-quote-card p { 
-            font-size: 0.85rem; 
-            color: #4A3B32; 
-            line-height: 1.4;
-            font-style: italic;
-        }
-        .coffee-quote-card strong {
-            color: var(--coffee-dark);
-            font-style: normal;
-        }
+        .coffee-quote-card p { font-size: 0.85rem; color: #4A3B32; line-height: 1.4; font-style: italic; }
+        .coffee-quote-card strong { color: var(--coffee-dark); font-style: normal; }
 
         .coffee-pay-area { display: flex; flex-direction: column; align-items: center; gap: 12px; }
 
@@ -176,12 +148,8 @@
             box-shadow: 0 4px 12px rgba(61, 35, 20, 0.25);
             transition: 0.3s; 
         }
-        .btn-coffee-pay:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(61, 35, 20, 0.35);
-        }
+        .btn-coffee-pay:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(61, 35, 20, 0.35); }
 
-        /* eBooks Box */
         .ebook-main-box {
             background: var(--white);
             border: 2px solid var(--accent-blue);
@@ -207,13 +175,7 @@
         .price-badge { background: #FFEBEB; color: #D9381E; font-weight: bold; padding: 2px 8px; border-radius: 12px; font-size: 0.78rem; display: inline-block; margin-bottom: 8px; }
         .btn-download { background: var(--green); color: var(--white); text-decoration: none; padding: 8px; border-radius: 6px; text-align: center; font-weight: bold; font-size: 0.82rem; display: flex; align-items: center; justify-content: center; gap: 6px; }
 
-        /* ================= LINE 2: PRAYER | HELP | JESUS ARMY ================= */
-        .line-two-grid {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
+        .line-two-grid { display: flex; gap: 15px; margin-bottom: 25px; }
         .line-two-grid > div { flex: 1; }
 
         .small-card-box {
@@ -279,21 +241,15 @@
         .store-card p{color:#667085;font-size:.85rem}
         .store-btn{background:#0A2540;color:#fff;text-decoration:none;padding:10px 17px;border-radius:24px;font-weight:800;font-size:.82rem;white-space:nowrap}
         .store-btn:hover{background:#0073E6}
-        @media (max-width:600px){.store-card{flex-direction:column;align-items:flex-start}.store-btn{width:100%;text-align:center}}
 
         @media (max-width: 768px) {
             header h1 { font-size: 1.8rem; }
             header p { font-size: 0.85rem; }
             .line-one-grid, .line-two-grid { flex-direction: column; }
+            .store-card { flex-direction: column; align-items: flex-start; }
+            .store-btn { width: 100%; text-align: center; }
         }
 
-        /* Modal */
-        .thank-you-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); align-items: center; justify-content: center; z-index: 1000; }
-        .modal-content { background: var(--white); padding: 25px; border-radius: 14px; text-align: center; max-width: 350px; }
-        .modal-content i { font-size: 3rem; color: var(--green); margin-bottom: 10px; }
-        .modal-content h3 { font-size: 1.5rem; color: var(--primary-blue); margin-bottom: 8px; }
-
-        /* Social Grid */
         .social-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 25px; }
         .social-card { padding: 12px; border-radius: 10px; color: var(--white); text-align: center; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
         .youtube-btn { background: #FF0000; }
@@ -305,7 +261,6 @@
 </head>
 <body>
 
-    <!-- SPIRITUAL & MOTIVATIONAL BANNER HEADER -->
     <header>
         <div class="header-cross-icon"><i class="fas fa-cross"></i></div>
         <h1>ST. ANTHONY CHURCH</h1>
@@ -318,12 +273,11 @@
 
     <div class="container">
 
-        <!-- ================= LINE 1: LEFT & RIGHT ================= -->
         <div class="section-title-tag">--- Main Featured Options ---</div>
 
         <div class="line-one-grid">
 
-            <!-- LEFT SIDE: BUY ME A COFFEE -->
+            <!-- BUY ME A COFFEE -->
             <div>
                 <div class="coffee-box">
                     <div>
@@ -340,14 +294,14 @@
                     </div>
                     
                     <div class="coffee-pay-area">
-                        <a href="https://rzp.io/rzp/qmoivUmD" target="_blank" class="btn-coffee-pay">
+                        <a href="https://rzp.io/rzp/aYCNkcYv" target="_blank" class="btn-coffee-pay">
                             <i class="fas fa-heart"></i> Donate ½ Cup Coffee (₹5)
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- RIGHT SIDE: EBOOK SECTION -->
+            <!-- EBOOK SECTION -->
             <div>
                 <div class="ebook-main-box">
                     <div class="ebook-header">
@@ -366,7 +320,7 @@
                         <h4>ଶୀଘ୍ର ସଫଳତା ପାଇଁ ବାଇବେଲ୍ ର ୩ଟି ବାକ୍ୟ</h4>
                         <p>Discover 3 powerful Bible messages for quick success.</p>
                         <div class="price-badge">Price: ₹10 ONLY</div>
-                        <a href="https://rzp.io/rzp/kEUemdC" target="_blank" class="btn-download">
+                        <a href="https://rzp.io/rzp/oNnbuKJ" target="_blank" class="btn-download">
                             <i class="fas fa-download"></i> Pay ₹10 & Download (Odia)
                         </a>
                     </div>
@@ -376,50 +330,25 @@
                         <h4>3 Powerfull Bible Massage for a Success</h4>
                         <p>English Edition for faith, success & peace.</p>
                         <div class="price-badge">Price: ₹10 ONLY</div>
-                        <a href="https://rzp.io/rzp/AFlLUbt" target="_blank" class="btn-download">
+                        <a href="https://rzp.io/rzp/8iRf5qg" target="_blank" class="btn-download">
                             <i class="fas fa-download"></i> Pay ₹10 & Download (Eng)
                         </a>
                     </div>
 
-                    <!-- Other Languages Form (ALL INDIAN LANGUAGES INCLUDED) -->
-                    <div id="lang-other" style="display: none;">
-                        <form action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST">
+                    <!-- Other Languages Form -->
+                    <div id="lang-other" class="ebook-card-mini" style="display: none;">
+                        <form action="https://formspree.io/f/xzezrkdd" method="POST">
                             <input type="hidden" name="_gotcha" style="display:none !important">
                             <input type="hidden" name="Form Category" value="eBook Request (Other Language)">
 
                             <div class="form-group-mini">
                                 <select name="Selected Language" required>
                                     <option value="">-- Choose Language --</option>
-                                    <option value="Assamese">Assamese (ଅସମୀୟା)</option>
-                                    <option value="Bengali">Bengali (বাংলা)</option>
-                                    <option value="Bodo">Bodo (ବଡ଼ୋ)</option>
-                                    <option value="Dogri">Dogri (डोगरी)</option>
-                                    <option value="Gujarati">Gujarati (ગુજરાતી)</option>
                                     <option value="Hindi">Hindi (हिंदी)</option>
-                                    <option value="Kannada">Kannada ((କନ୍ନଡ)
-                                    <option value="Kashmiri">Kashmiri (कॉशुर)</option>
-                                    <option value="Konkani">Konkani (कोंकणी)</option>
-                                    <option value="Maithili">Maithili (मैथिली)</option>
-                                    <option value="Malayalam">Malayalam (മലയാളം)</option>
-                                    <option value="Manipuri">Manipuri / Meitei (ꯃꯩꯇꯩꯂꯣꯟ)</option>
-                                    <option value="Marathi">Marathi (मराठी)</option>
-                                    <option value="Nepali">Nepali (नेपाली)</option>
-                                    <option value="Punjabi">Punjabi (ਪੰਜਾਬੀ)</option>
-                                    <option value="Sanskrit">Sanskrit (संस्कृतम्)</option>
-                                    <option value="Santali">Santali (ସାନ୍ତାଳୀ)</option>
-                                    <option value="Sindhi">Sindhi (सिन्धी / سنڌي)</option>
-                                    <option value="Tamil">Tamil (தமிழ்)</option>
+                                    <option value="Bengali">Bengali (বাংলা)</option>
                                     <option value="Telugu">Telugu (తెలుగు)</option>
-                                    <option value="Urdu">Urdu (اُردُو)</option>
-                                    <option value="Bhojpuri">Bhojpuri (भोजपुरी)</option>
-                                    <option value="Chhattisgarhi">Chhattisgarhi (छत्तीसगढ़ी)</option>
-                                    <option value="Garhwali">Garhwali (गढ़वाली)</option>
-                                    <option value="Ho">Ho (ହୋ)</option>
-                                    <option value="Kumaoni">Kumaoni (कुमाऊँनी)</option>
-                                    <option value="Mizo">Mizo (Mizo ṭawng)</option>
-                                    <option value="Nagamese">Nagamese</option>
-                                    <option value="Tulu">Tulu (തുളു / തുളുവ)</option>
-                                    <option value="Other">Other Language (Please Specify in Note)</option>
+                                    <option value="Tamil">Tamil (தமிழ்)</option>
+                                    <option value="Other">Other Language</option>
                                 </select>
                             </div>
                             <div class="form-group-mini">
@@ -428,8 +357,9 @@
                             <div class="form-group-mini">
                                 <input type="text" name="Payment Details" placeholder="UPI Ref / UTR No." required>
                             </div>
+
                             <button type="submit" class="btn-mini-submit btn-blue">
-                                <i class="fas fa-shield-alt"></i> Request eBook (₹10)
+                                <i class="fas fa-paper-plane"></i> Request eBook (₹10)
                             </button>
                         </form>
                     </div>
@@ -438,18 +368,17 @@
 
         </div>
 
-        <!-- ================= LINE 2: PRAYER | HELP | JESUS ARMY ================= -->
         <div class="section-title-tag">--- Free Community & Support Options ---</div>
 
         <div class="line-two-grid">
 
-            <!-- LEFT SIDE: PRAYER OFFER (FREE) -->
+            <!-- PRAYER OFFER -->
             <div>
                 <div class="small-card-box purple-border">
                     <h3 style="color: var(--purple);"><i class="fas fa-hands-praying"></i> Prayer Offer (Free)</h3>
                     <p>Send your prayer request (Free).</p>
                     
-                    <form action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST">
+                    <form action="https://formspree.io/f/xzezrkdd" method="POST">
                         <input type="hidden" name="_gotcha" style="display:none !important">
                         <input type="hidden" name="Form Type" value="Prayer Request (Free)">
 
@@ -462,20 +391,21 @@
                         <div class="form-group-mini">
                             <textarea name="Prayer Request" rows="2" placeholder="Write prayer request..." required></textarea>
                         </div>
+
                         <button type="submit" class="btn-mini-submit btn-purple">
-                            <i class="fas fa-shield-alt"></i> Submit Prayer
+                            <i class="fas fa-paper-plane"></i> Submit Prayer
                         </button>
                     </form>
                 </div>
             </div>
 
-            <!-- MIDDLE SIDE: NEED HELP SUPPORT -->
+            <!-- NEED HELP SUPPORT -->
             <div>
                 <div class="small-card-box orange-border">
                     <h3 style="color: var(--orange);"><i class="fas fa-hand-holding-heart"></i> Need Help</h3>
                     <p>Need support or guidance? Tell us.</p>
                     
-                    <form action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST">
+                    <form action="https://formspree.io/f/xzezrkdd" method="POST">
                         <input type="hidden" name="_gotcha" style="display:none !important">
                         <input type="hidden" name="Form Type" value="Help Support Request">
 
@@ -488,20 +418,21 @@
                         <div class="form-group-mini">
                             <textarea name="Help Details" rows="2" placeholder="How can we help you?" required></textarea>
                         </div>
+
                         <button type="submit" class="btn-mini-submit btn-orange">
-                            <i class="fas fa-shield-alt"></i> Submit Request
+                            <i class="fas fa-paper-plane"></i> Submit Request
                         </button>
                     </form>
                 </div>
             </div>
 
-            <!-- RIGHT SIDE: JESUS ARMY CLUB -->
+            <!-- JESUS ARMY CLUB -->
             <div>
                 <div class="small-card-box red-border">
                     <h3 style="color: var(--red-army);"><i class="fas fa-shield-halved"></i> Jesus Army</h3>
                     <p>Join our club (Free Membership).</p>
                     
-                    <form action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST">
+                    <form action="https://formspree.io/f/xzezrkdd" method="POST">
                         <input type="hidden" name="_gotcha" style="display:none !important">
                         <input type="hidden" name="Form Type" value="Jesus Army Membership">
 
@@ -514,8 +445,9 @@
                         <div class="form-group-mini">
                             <input type="email" name="Email Address" placeholder="Email Address" required>
                         </div>
+
                         <button type="submit" class="btn-mini-submit btn-red">
-                            <i class="fas fa-shield-alt"></i> Join Free
+                            <i class="fas fa-paper-plane"></i> Join Free
                         </button>
                     </form>
                 </div>
@@ -536,7 +468,6 @@
             </div>
         </section>
 
-        <!-- Social Media Buttons -->
         <div class="social-grid">
             <a href="https://youtube.com/@st.anthonychurchpatilipanka?si=j5wvHqHrja4BpcE8" target="_blank" class="social-card youtube-btn">
                 <i class="fab fa-youtube" style="font-size: 1.3rem;"></i><br>YouTube Channel
@@ -546,16 +477,6 @@
             </a>
         </div>
 
-    </div>
-
-    <!-- Thank You Modal -->
-    <div id="thankYouModal" class="thank-you-modal">
-        <div class="modal-content">
-            <i class="fas fa-heart"></i>
-            <h3>Thank You So Much!</h3>
-            <p>Aapke is chhote se sahyog ke liye bohot bohot dhanyawad! God Bless You! ☕✨<br>Have a nice day!</p>
-            <button onclick="closeThankYouModal()" style="background: var(--accent-blue); color: #fff; border: none; padding: 8px 20px; border-radius: 15px; cursor: pointer; font-weight: bold; margin-top: 10px;">Close</button>
-        </div>
     </div>
 
     <footer>
@@ -581,14 +502,6 @@
             } else if (langKey === 'other') {
                 document.getElementById('lang-other').style.display = 'block';
             }
-        }
-
-        function showThankYouModal() {
-            document.getElementById('thankYouModal').style.display = 'flex';
-        }
-
-        function closeThankYouModal() {
-            document.getElementById('thankYouModal').style.display = 'none';
         }
     </script>
 </body>
