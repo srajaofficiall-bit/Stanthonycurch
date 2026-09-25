@@ -111,42 +111,141 @@
         }
         .main-tab-btn.active, .main-tab-btn:hover { background: var(--accent-blue); color: var(--white); }
 
-        .books-single-container {
-            max-width: 450px;
-            margin: 0 auto;
+        /* SLIDER WRAPPER WITH NAVIGATION ARROWS */
+        .slider-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
         }
 
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-blue);
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: 0.2s ease;
+        }
+        .nav-arrow:hover { background: var(--accent-blue); color: var(--white); }
+        .nav-arrow.left { left: -10px; }
+        .nav-arrow.right { right: -10px; }
+
+        /* HORIZONTAL CAROUSEL CONTAINER */
+        .books-slider-container {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: 10px 15px 20px;
+            width: 100%;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .books-slider-container::-webkit-scrollbar {
+            height: 6px;
+        }
+        .books-slider-container::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+            border-radius: 10px;
+        }
+
+        /* 3D BOOK FLIP STYLES */
         .ebook-card { 
+            flex: 0 0 280px;
+            scroll-snap-align: center;
             background: #F8FAFC; 
-            border-radius: 12px; 
-            padding: 18px; 
+            border-radius: 14px; 
+            padding: 16px; 
             border: 1px solid #E0E0E0; 
             display: flex; 
             flex-direction: column; 
-            justify-content: space-between;
+            align-items: center;
             text-align: center;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        .ebook-card:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
-        .ebook-card h4 { font-size: 1.05rem; color: var(--primary-blue); margin-bottom: 8px; line-height: 1.4; }
-        .ebook-card p { font-size: 0.85rem; color: #666; margin-bottom: 12px; }
-        .price-badge { background: #FFEBEB; color: #D9381E; font-weight: bold; padding: 4px 12px; border-radius: 12px; font-size: 0.82rem; display: inline-block; margin-bottom: 12px; }
+        .ebook-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+        
+        .flip-container {
+            perspective: 1000px;
+            width: 160px;
+            height: 225px;
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+        
+        .flipper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-container.flipped .flipper {
+            transform: rotateY(180deg);
+        }
+
+        .front-cover, .back-cover-img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 8px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.18);
+            border: 1px solid #DDD;
+            object-fit: cover;
+        }
+
+        .front-cover {
+            top: 0;
+            left: 0;
+        }
+
+        .back-cover-img {
+            top: 0;
+            left: 0;
+            transform: rotateY(180deg);
+        }
+
+        .ebook-card h4 { font-size: 0.98rem; color: var(--primary-blue); margin-bottom: 6px; line-height: 1.3; min-height: 2.6em; }
+        .ebook-card p { font-size: 0.8rem; color: #666; margin-bottom: 10px; min-height: 2.4em; }
+        .price-badge { background: #FFEBEB; color: #D9381E; font-weight: bold; padding: 4px 12px; border-radius: 12px; font-size: 0.8rem; display: inline-block; margin-bottom: 10px; }
         
         .btn-download { 
             background: var(--green); 
             color: var(--white); 
             text-decoration: none; 
-            padding: 10px; 
+            padding: 10px 14px; 
             border-radius: 6px; 
             text-align: center; 
             font-weight: bold; 
-            font-size: 0.88rem; 
+            font-size: 0.85rem; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
             gap: 6px; 
+            width: 100%;
         }
         .btn-download:hover { background: #218838; }
+
+        .slider-hint {
+            text-align: center;
+            font-size: 0.78rem;
+            color: #666;
+            margin-top: -5px;
+            margin-bottom: 12px;
+        }
 
         .other-lang-box {
             max-width: 500px;
@@ -257,6 +356,8 @@
         @media (max-width: 768px) {
             header h1 { font-size: 1.8rem; }
             .line-two-grid { flex-direction: column; }
+            .nav-arrow.left { left: -5px; }
+            .nav-arrow.right { right: -5px; }
         }
     </style>
 </head>
@@ -300,31 +401,103 @@
                 <button class="main-tab-btn" onclick="switchLanguage('other', this)">OTHER LANGUAGES</button>
             </div>
 
-            <!-- ODIA EBOOK CONTAINER -->
-            <div id="lang-odia" class="books-single-container">
-                <div class="ebook-card">
-                    <h4>ଶୀଘ୍ର ସଫଳତା ପାଇଁ ବାଇବେଲ୍ ର ୩ଟି ବାକ୍ୟ</h4>
-                    <p>Discover 3 powerful Bible messages for quick spiritual success.</p>
-                    <div>
-                        <span class="price-badge">Price: ₹10 ONLY</span>
+            <!-- ODIA EBOOKS SLIDER -->
+            <div id="lang-odia">
+                <p class="slider-hint"><i class="fas fa-hand-pointer"></i> <b>Double-Tap Cover</b> to flip back cover | Use arrows <i class="fas fa-arrow-left"></i> <i class="fas fa-arrow-right"></i> for more books</p>
+                <div class="slider-wrapper">
+                    <button class="nav-arrow left" onclick="scrollSlider('odia-slider', -260)"><i class="fas fa-chevron-left"></i></button>
+                    
+                    <div class="books-slider-container" id="odia-slider">
+                        
+                        <!-- 2. ODIA: କଥା କହିବାର କଳା -->
+                        <div class="ebook-card">
+                            <div class="flip-container" ondblclick="toggleFlip(this)">
+                                <div class="flipper">
+                                    <img src="98038_1ce91d.png" alt="କଥା କହିବାର କଳା Front" class="front-cover">
+                                    <img src="99068_1d521b.jpg" alt="କଥା କହିବାର କଳା Back" class="back-cover-img">
+                                </div>
+                            </div>
+                            <h4>କଥା କହିବାର କଳା, ବାଇବେଲ ରୁ ଶିଖନ୍ତୁ</h4>
+                            <p>Learn the biblical art of graceful and powerful speech.</p>
+                            <div>
+                                <span class="price-badge">Price: ₹10 ONLY</span>
+                            </div>
+                            <a href="https://rzp.io/rzp/BuR9mK4" target="_blank" class="btn-download">
+                                <i class="fas fa-download"></i> Pay ₹10 & Download
+                            </a>
+                        </div>
+
+                        <!-- 4. ODIA: ଶୀଘ୍ର ସଫଳତା ପାଇଁ ବାଇବେଲ ର 3ଟି ବାକ୍ୟ -->
+                        <div class="ebook-card">
+                            <div class="flip-container" ondblclick="toggleFlip(this)">
+                                <div class="flipper">
+                                    <img src="93418_1ced5c.jpg" alt="ଶୀଘ୍ର ସଫଳତା Front" class="front-cover">
+                                    <img src="93399_1d561c.png" alt="ଶୀଘ୍ର ସଫଳତା Back" class="back-cover-img">
+                                </div>
+                            </div>
+                            <h4>ଶୀଘ୍ର ସଫଳତା ପାଇଁ ବାଇବେଲ୍ ର ୩ଟି ବାକ୍ୟ</h4>
+                            <p>Discover 3 powerful Bible messages for quick spiritual success.</p>
+                            <div>
+                                <span class="price-badge">Price: ₹10 ONLY</span>
+                            </div>
+                            <a href="https://rzp.io/rzp/oNnbuKJ" target="_blank" class="btn-download">
+                                <i class="fas fa-download"></i> Pay ₹10 & Download
+                            </a>
+                        </div>
+
                     </div>
-                    <a href="https://rzp.io/rzp/oNnbuKJ" target="_blank" class="btn-download">
-                        <i class="fas fa-download"></i> Pay ₹10 & Download (Odia)
-                    </a>
+
+                    <button class="nav-arrow right" onclick="scrollSlider('odia-slider', 260)"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
 
-            <!-- ENGLISH EBOOK CONTAINER -->
-            <div id="lang-english" class="books-single-container" style="display: none;">
-                <div class="ebook-card">
-                    <h4>3 Powerful Bible Messages for Success</h4>
-                    <p>English Edition for faith, success, and spiritual direction.</p>
-                    <div>
-                        <span class="price-badge">Price: ₹10 ONLY</span>
+            <!-- ENGLISH EBOOKS SLIDER -->
+            <div id="lang-english" style="display: none;">
+                <p class="slider-hint"><i class="fas fa-hand-pointer"></i> <b>Double-Tap Cover</b> to flip back cover | Use arrows <i class="fas fa-arrow-left"></i> <i class="fas fa-arrow-right"></i> for more books</p>
+                <div class="slider-wrapper">
+                    <button class="nav-arrow left" onclick="scrollSlider('english-slider', -260)"><i class="fas fa-chevron-left"></i></button>
+
+                    <div class="books-slider-container" id="english-slider">
+
+                        <!-- 1. ENGLISH: The Art of Speaking -->
+                        <div class="ebook-card">
+                            <div class="flip-container" ondblclick="toggleFlip(this)">
+                                <div class="flipper">
+                                    <img src="99494_1ce91d.jpg" alt="The Art Of Speaking Front" class="front-cover">
+                                    <img src="99497_1d521b.jpg" alt="The Art Of Speaking Back" class="back-cover-img">
+                                </div>
+                            </div>
+                            <h4>The Art Of Speaking</h4>
+                            <p>Learn communication wisdom directly from biblical truths.</p>
+                            <div>
+                                <span class="price-badge">Price: ₹10 ONLY</span>
+                            </div>
+                            <a href="https://rzp.io/rzp/GYmCZHR" target="_blank" class="btn-download">
+                                <i class="fas fa-download"></i> Pay ₹10 & Download
+                            </a>
+                        </div>
+
+                        <!-- 3. ENGLISH: 3 Powerful Bible Messages for Success -->
+                        <div class="ebook-card">
+                            <div class="flip-container" ondblclick="toggleFlip(this)">
+                                <div class="flipper">
+                                    <img src="93413_1ced5c.png" alt="3 Powerful Messages Front" class="front-cover">
+                                    <img src="93399_1d55dc.png" alt="3 Powerful Messages Back" class="back-cover-img">
+                                </div>
+                            </div>
+                            <h4>3 Powerful Bible Messages for Success</h4>
+                            <p>English Edition for faith, success, and spiritual direction.</p>
+                            <div>
+                                <span class="price-badge">Price: ₹10 ONLY</span>
+                            </div>
+                            <a href="https://rzp.io/rzp/8iRf5qg" target="_blank" class="btn-download">
+                                <i class="fas fa-download"></i> Pay ₹10 & Download
+                            </a>
+                        </div>
+
                     </div>
-                    <a href="https://rzp.io/rzp/8iRf5qg" target="_blank" class="btn-download">
-                        <i class="fas fa-download"></i> Pay ₹10 & Download (English)
-                    </a>
+
+                    <button class="nav-arrow right" onclick="scrollSlider('english-slider', 260)"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
 
@@ -543,6 +716,17 @@
             } else if (langKey === 'other') {
                 document.getElementById('lang-other').style.display = 'block';
             }
+        }
+
+        // Horizontal Slider Smooth Scroll Function
+        function scrollSlider(sliderId, distance) {
+            const slider = document.getElementById(sliderId);
+            slider.scrollBy({ left: distance, behavior: 'smooth' });
+        }
+
+        // Double Click / Double Tap to Flip Cover Page
+        function toggleFlip(element) {
+            element.classList.toggle('flipped');
         }
     </script>
 </body>
