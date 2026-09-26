@@ -11,6 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         :root {
             --primary-blue: #0A2540;
             --accent-blue: #0073E6;
@@ -376,7 +380,7 @@
     <div class="container">
 
         <!-- COFFEE DONATION SECTION -->
-        <div class="coffee-box">
+        <div class="coffee-box" id="coffee">
             <h2 style="color: var(--coffee-dark); margin-bottom: 8px;"><i class="fas fa-mug-hot"></i> Buy Me ½ Cup Coffee ☕</h2>
             <p style="font-size: 0.88rem; color: #4A3B32; max-width: 700px; margin: 0 auto 15px;">
                 "Aapko lagta hai ki humare videos ke zariye hum <strong>Christian Samaj</strong> ko ek achha message de rahe hain, toh aap hume <strong>½ Cup Coffee (₹5)</strong> donate karke support kar sakte hain! God Bless You! 🙏"
@@ -387,7 +391,7 @@
         </div>
 
         <!-- EBOOKS DIGITAL LIBRARY SECTION -->
-        <div class="section-title-tag">--- Church Digital Library ---</div>
+        <div class="section-title-tag" id="ebooks">--- Church Digital Library ---</div>
 
         <div class="ebook-library-box">
             <div class="ebook-header">
@@ -396,9 +400,9 @@
             </div>
 
             <div class="main-tab-buttons">
-                <button class="main-tab-btn active" onclick="switchLanguage('odia', this)">ODIA eBOOK</button>
-                <button class="main-tab-btn" onclick="switchLanguage('english', this)">ENGLISH eBOOK</button>
-                <button class="main-tab-btn" onclick="switchLanguage('other', this)">OTHER LANGUAGES</button>
+                <button class="main-tab-btn active" id="btn-tab-odia" onclick="switchLanguage('odia', this)">ODIA eBOOK</button>
+                <button class="main-tab-btn" id="btn-tab-english" onclick="switchLanguage('english', this)">ENGLISH eBOOK</button>
+                <button class="main-tab-btn" id="btn-tab-other" onclick="switchLanguage('other', this)">OTHER LANGUAGES</button>
             </div>
 
             <!-- ODIA EBOOKS SLIDER -->
@@ -410,7 +414,7 @@
                     <div class="books-slider-container" id="odia-slider">
                         
                         <!-- ODIA BOOK 1: କଥା କହିବାର କଳା -->
-                        <div class="ebook-card">
+                        <div class="ebook-card" id="odia-book-1">
                             <div class="flip-container" onclick="toggleFlip(this)">
                                 <div class="flipper">
                                     <img src="କଥା କହିବାର କଳା front.jpg" alt="କଥା କହିବାର କଳା Front" class="front-cover">
@@ -419,6 +423,10 @@
                             </div>
                             <h4>କଥା କହିବାର କଳା, ବାଇବେଲ ରୁ ଶିଖନ୍ତୁ</h4>
                             <p>Learn the biblical art of graceful and powerful speech.</p>
+                            <div style="margin: 4px 0 8px 0; color: #ffc107; font-size: 15px;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span style="color: #333; font-size: 12px; font-weight: bold; margin-left: 4px;">4.9 / 5</span>
+                            </div>
                             <div>
                                 <span class="price-badge">Price: ₹10 ONLY</span>
                             </div>
@@ -427,8 +435,8 @@
                             </a>
                         </div>
 
-                        <!-- ODIA BOOK 2: ଜୀବନରେ ସଫଳ ହେବା ପାଇଁ ବାଇବେଲର ୩ ଟି ଶକ୍ତିଶାଳୀ ବାଣୀ -->
-                        <div class="ebook-card">
+                        <!-- ODIA BOOK 2: ସଫଳତା ପାଇଁ ବାଇବେଲ ର ୩ଟି ବାକ୍ୟ -->
+                        <div class="ebook-card" id="odia-book-2">
                             <div class="flip-container" onclick="toggleFlip(this)">
                                 <div class="flipper">
                                     <img src="ସଫଳତା ପାଇଁ ୩ଟି ବାକ୍ୟ front.jpg" alt="ଜୀବନରେ ସଫଳ ହେବା ପାଇଁ Front" class="front-cover">
@@ -437,28 +445,14 @@
                             </div>
                             <h4>ଜୀବନରେ ସଫଳ ହେବା ପାଇଁ ବାଇବେଲର ୩ ଟି ଶକ୍ତିଶାଳୀ ବାଣୀ</h4>
                             <p>Discover 3 powerful Bible messages for quick spiritual success.</p>
+                            <div style="margin: 4px 0 8px 0; color: #ffc107; font-size: 15px;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span style="color: #333; font-size: 12px; font-weight: bold; margin-left: 4px;">4.9 / 5</span>
+                            </div>
                             <div>
                                 <span class="price-badge">Price: ₹10 ONLY</span>
                             </div>
                             <a href="https://rzp.io/rzp/oNnbuKJ" target="_blank" class="btn-download">
-                                <i class="fas fa-download"></i> Pay ₹10 & Download
-                            </a>
-                        </div>
-
-                        <!-- ODIA BOOK 3: 98038 Edition -->
-                        <div class="ebook-card">
-                            <div class="flip-container" onclick="toggleFlip(this)">
-                                <div class="flipper">
-                                    <img src="98038_1ce91d.png" alt="Odia eBook Front" class="front-cover">
-                                    <img src="99068_1d521b.jpg" alt="Odia eBook Back" class="back-cover-img">
-                                </div>
-                            </div>
-                            <h4>COMING SOON....</h4>
-                            <p>Inspiring lessons from the Bible for spiritual growth.</p>
-                            <div>
-                                <span class="price-badge">Price: ₹10 ONLY</span>
-                            </div>
-                            <a href="https://rzp.io/rzp/BuR9mK4" target="_blank" class="btn-download">
                                 <i class="fas fa-download"></i> Pay ₹10 & Download
                             </a>
                         </div>
@@ -478,7 +472,7 @@
                     <div class="books-slider-container" id="english-slider">
 
                         <!-- ENGLISH BOOK 1: The Art of Speaking -->
-                        <div class="ebook-card">
+                        <div class="ebook-card" id="art-of-speaking">
                             <div class="flip-container" onclick="toggleFlip(this)">
                                 <div class="flipper">
                                     <img src="The art of Speaking_ftont_page.jpg" alt="The Art Of Speaking Front" class="front-cover">
@@ -487,6 +481,10 @@
                             </div>
                             <h4>The Art Of Speaking</h4>
                             <p>Learn communication wisdom directly from biblical truths.</p>
+                            <div style="margin: 4px 0 8px 0; color: #ffc107; font-size: 15px;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span style="color: #333; font-size: 12px; font-weight: bold; margin-left: 4px;">4.9 / 5</span>
+                            </div>
                             <div>
                                 <span class="price-badge">Price: ₹10 ONLY</span>
                             </div>
@@ -496,7 +494,7 @@
                         </div>
 
                         <!-- ENGLISH BOOK 2: 3 Powerful Bible Verses for a Successful Life -->
-                        <div class="ebook-card">
+                        <div class="ebook-card" id="english-book-2">
                             <div class="flip-container" onclick="toggleFlip(this)">
                                 <div class="flipper">
                                     <img src="3 Powerful Bible massages for Success_front.jpg" alt="3 Powerful Messages Front" class="front-cover">
@@ -505,28 +503,14 @@
                             </div>
                             <h4>3 Powerful Bible Verses for a Successful Life</h4>
                             <p>English Edition for faith, success, and spiritual direction.</p>
+                            <div style="margin: 4px 0 8px 0; color: #ffc107; font-size: 15px;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span style="color: #333; font-size: 12px; font-weight: bold; margin-left: 4px;">4.9 / 5</span>
+                            </div>
                             <div>
                                 <span class="price-badge">Price: ₹10 ONLY</span>
                             </div>
                             <a href="https://rzp.io/rzp/8iRf5qg" target="_blank" class="btn-download">
-                                <i class="fas fa-download"></i> Pay ₹10 & Download
-                            </a>
-                        </div>
-
-                        <!-- ENGLISH BOOK 3: 99494 Edition -->
-                        <div class="ebook-card">
-                            <div class="flip-container" onclick="toggleFlip(this)">
-                                <div class="flipper">
-                                    <img src="99494_1ce91d.jpg" alt="English eBook Front" class="front-cover">
-                                    <img src="99497_1d521b.jpg" alt="English eBook Back" class="back-cover-img">
-                                </div>
-                            </div>
-                            <h4>COMING SOON....</h4>
-                            <p>Practical guidance and motivation rooted in scripture.</p>
-                            <div>
-                                <span class="price-badge">Price: ₹10 ONLY</span>
-                            </div>
-                            <a href="https://rzp.io/rzp/GYmCZHR" target="_blank" class="btn-download">
                                 <i class="fas fa-download"></i> Pay ₹10 & Download
                             </a>
                         </div>
@@ -582,12 +566,12 @@
         </div>
 
         <!-- PRAYER SECTION -->
-        <div class="section-title-tag">--- Prayer Request Options ---</div>
+        <div class="section-title-tag" id="prayer">--- Prayer Request Options ---</div>
 
         <div class="line-two-grid">
 
             <!-- PERSONAL PRAYER OFFER (FREE) -->
-            <div>
+            <div id="prayer-request">
                 <div class="small-card-box purple-border">
                     <h3 style="color: var(--purple);"><i class="fas fa-hands-praying"></i> Personal Prayer (Free)</h3>
                     <p>Send your personal prayer request.</p>
@@ -614,7 +598,7 @@
             </div>
 
             <!-- MASS PRAYER OFFER (MINIMUM ₹50 OFFERING) -->
-            <div>
+            <div id="mass-offer">
                 <div class="small-card-box gold-border">
                     <h3 style="color: #B8860B;"><i class="fas fa-church"></i> Mass Prayer Intention</h3>
                     <p>Holy Mass Prayer (Offering: ₹50 or Above)</p>
@@ -651,7 +635,7 @@
 
         <div class="line-two-grid">
             <!-- NEED HELP SUPPORT -->
-            <div>
+            <div id="need-help">
                 <div class="small-card-box orange-border">
                     <h3 style="color: var(--orange);"><i class="fas fa-hand-holding-heart"></i> Need Help</h3>
                     <p>Need support or guidance? Tell us.</p>
@@ -678,7 +662,7 @@
             </div>
 
             <!-- JESUS ARMY CLUB -->
-            <div>
+            <div id="jesus-army">
                 <div class="small-card-box red-border">
                     <h3 style="color: var(--red-army);"><i class="fas fa-shield-halved"></i> Jesus Army</h3>
                     <p>Join our club (Free Membership).</p>
@@ -743,7 +727,9 @@
             const subBtns = document.querySelectorAll('.main-tab-btn');
             subBtns.forEach(btn => btn.classList.remove('active'));
 
-            btnElement.classList.add('active');
+            if (btnElement) {
+                btnElement.classList.add('active');
+            }
 
             if (langKey === 'odia') {
                 document.getElementById('lang-odia').style.display = 'block';
@@ -754,16 +740,34 @@
             }
         }
 
-        // Horizontal Slider Smooth Scroll Function
         function scrollSlider(sliderId, distance) {
             const slider = document.getElementById(sliderId);
             slider.scrollBy({ left: distance, behavior: 'smooth' });
         }
 
-        // Click / Tap to Flip Cover Page
         function toggleFlip(element) {
             element.classList.toggle('flipped');
         }
+
+        // Auto Switch Tabs & Scroll to Anchor Target
+        window.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash;
+            if (hash) {
+                if (hash === '#english' || hash === '#art-of-speaking' || hash === '#english-book-2') {
+                    switchLanguage('english', document.getElementById('btn-tab-english'));
+                } else if (hash === '#odia' || hash === '#odia-book-1' || hash === '#odia-book-2') {
+                    switchLanguage('odia', document.getElementById('btn-tab-odia'));
+                } else if (hash === '#other') {
+                    switchLanguage('other', document.getElementById('btn-tab-other'));
+                }
+                setTimeout(() => {
+                    const targetEl = document.querySelector(hash);
+                    if (targetEl) {
+                        targetEl.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 300);
+            }
+        });
     </script>
 </body>
 </html>
